@@ -37,27 +37,6 @@ public class teste {
 
     public static String unsigned(String number){
         int value = Integer.parseInt(number);
-        /*if (value == 0){
-            return "0";
-        }
-        if (value == 1){
-            return "1";
-        }
-        List<String> numbers = new ArrayList<>();
-        boolean check = true;
-        int remnant = 0;
-
-        while(check == true){
-            remnant = value % 2;
-            value = (int)Math.floor(value/2);
-            numbers.add(String.valueOf(remnant));
-            if (value == 1){
-                numbers.add("1");
-                check = false;
-            }
-        }*/
-
-
         int r = 0;
         String st = "";
         while(value != 0){
@@ -66,72 +45,17 @@ public class teste {
             value = value/2;
         }
         return st;
-        
-        /*StringBuilder sb = new StringBuilder();
-        sb.append(numbers.get(numbers.size()-1));
-        for (int i = numbers.size()-1; i > 0; i--){
-            sb.append(numbers.get(i-1));            
-        }
-        
-        return sb.toString();*/
     }
 
     public static String signAndMagnitude(String number){
-        /*String response = "";
-        if (number.length() < 2) {
-            response = "Error: Value not supported";
-        } else {
-            char sign = number.charAt(0);
-        int value = Integer.parseInt(number.substring(1));
-        if (sign == '+'){
-            sign = '0';
-        } else {
-            sign = '1';
-        }
-        if (value == 0){
-            return sign + "0";
-        }
-        if (value == 1){
-            return sign + "1";
-        }
-        List<String> numbers = new ArrayList<>();
-        boolean check = true;
-        int remnant = 0;
-
-        while(check == true){
-            remnant = value % 2;
-            value = (int)Math.floor(value/2);
-            numbers.add(String.valueOf(remnant));
-            if (value == 1){
-                numbers.add("1");
-                check = false;
-            }
-        }
-        
-        StringBuilder sb = new StringBuilder();
-        sb.append(sign);
-        sb.append(numbers.get(numbers.size()-1));
-        for (int i = numbers.size()-1; i > 0; i--){
-            sb.append(numbers.get(i-1));            
-        }
-        
-        return sb.toString();
-        }
-        return response;*/
         String st = "";
         String sign = "";
         if (number.charAt(0) == '-'){
-            sign = "1"; 
+            sign = "1";
+            st = unsigned(number.substring(1));
         } else {
             sign = "0";
-        }
-        int value = Integer.parseInt(number.substring(1));
-        int r = 0;
-        
-        while(value != 0){
-            r = value % 2;
-            st = r + st;
-            value = value/2;
+            st = unsigned(number.substring(0));
         }
         return sign + st;
     }
