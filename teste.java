@@ -119,10 +119,11 @@ public class teste {
         }
         return response;*/
         String st = "";
+        String sign = "";
         if (number.charAt(0) == '-'){
-            st = "1"; 
+            sign = "1"; 
         } else {
-            st = "0";
+            sign = "0";
         }
         int value = Integer.parseInt(number.substring(1));
         int r = 0;
@@ -132,7 +133,7 @@ public class teste {
             st = r + st;
             value = value/2;
         }
-        return st;
+        return sign + st;
     }
 
     /*public static String twoComplement(String number){
